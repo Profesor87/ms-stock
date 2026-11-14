@@ -106,6 +106,7 @@
 				</configuration>
 				<executions>
 					<execution>
+						<id>shade-jar</id>
 						<phase>package</phase>
 						<goals>
 							<goal>shade</goal>
