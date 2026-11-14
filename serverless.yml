@@ -4,11 +4,12 @@ provider:
   name: aws
   runtime: java21
   region: us-east-1
-  memorySize: 2048
+  memorySize: 3008
   timeout: 29
   iam:
     role: arn:aws:iam::911545955675:role/LabRole
   environment:
+    SPRING_MAIN_LAZY_INITIALIZATION: "true"
     SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=MySQL;NON_KEYWORDS=USER
     SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.h2.Driver
     SPRING_DATASOURCE_USERNAME: sa
@@ -16,7 +17,6 @@ provider:
     SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.H2Dialect
     SPRING_JPA_HIBERNATE_DDL_AUTO: update
     LOGGING_FILE_NAME: /tmp/backend.log
-    SPRING_MAIN_LAZY_INITIALIZATION: "true"
 
 package:
   artifact: target/backend-0.0.1-SNAPSHOT.jar
