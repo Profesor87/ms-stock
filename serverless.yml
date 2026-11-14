@@ -15,7 +15,7 @@ provider:
     memorySize: 1024
     timeout: 30
     iam:
-      role: arn:aws:iam::TU_ACCOUNT_ID:role/LabRole
+      role: arn:aws:iam::911545955675:role/LabRole
     environment:
       SPRING_DATASOURCE_URL: jdbc:h2:mem:awsdb;DB_CLOSE_DELAY=-1
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.h2.Driver
