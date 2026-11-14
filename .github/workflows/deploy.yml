@@ -1,0 +1,25 @@
+name: Pipeline CI - Microservicio Java 21
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 21 (Amazon Corretto)
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'corretto'
+          java-version: '21'
+          cache: 'maven'
+
+      - name: Compilar y verificar paquete con Maven
+        run: mvn clean package -DskipTests
