@@ -9,13 +9,14 @@ provider:
   iam:
     role: arn:aws:iam::911545955675:role/LabRole
   environment:
-    SPRING_DATASOURCE_URL: jdbc:h2:mem:awsdb;DB_CLOSE_DELAY=-1
+    SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=MySQL;NON_KEYWORDS=USER
     SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.h2.Driver
     SPRING_DATASOURCE_USERNAME: sa
     SPRING_DATASOURCE_PASSWORD: ""
     SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.H2Dialect
     SPRING_JPA_HIBERNATE_DDL_AUTO: update
     LOGGING_FILE_NAME: /tmp/backend.log
+    SPRING_MAIN_LAZY_INITIALIZATION: "true"
 
 package:
   artifact: target/backend-0.0.1-SNAPSHOT.jar
