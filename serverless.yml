@@ -8,6 +8,21 @@ provider:
   timeout: 30
   iam:
     role: arn:aws:iam::911545955675:role/LabRole
+  provider:
+    name: aws
+    runtime: java21
+    region: us-east-1
+    memorySize: 1024
+    timeout: 30
+    iam:
+      role: arn:aws:iam::TU_ACCOUNT_ID:role/LabRole
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:awsdb;DB_CLOSE_DELAY=-1
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.h2.Driver
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.H2Dialect
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
 
 package:
   artifact: target/backend-0.0.1-SNAPSHOT.jar
